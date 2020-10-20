@@ -42,3 +42,8 @@ ReactDOM.render(jsx, document.getElementById('app'))
 
 // Connect - connect import will connect your redux to the store.
 //
+
+
+
+  // yarn install --production for prod dependicies
+// yarn install for development dependicies
