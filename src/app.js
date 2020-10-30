@@ -6,6 +6,7 @@ import getVisibleExpenses from './selectors/visibleExpenses';
 import configureStore from './store/configureStore';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import './firebase/firebase';
 
 const store = configureStore();
 
@@ -28,6 +29,17 @@ ReactDOM.render(jsx, document.getElementById('app'))
 //        8. React - used to define JSX
 //        9. react redux
 //       10. HOC (higher order components)
+//       11. Action generators
+//             --> component calls action generator
+//             --> action generator returns object
+//             --> component dispatches object
+//             --> redux store changes
+//       12. Firebase in redux 
+//             --> component calls action generator
+//             --> action generator returns function
+//             --> component dispatches function(?) - redux-thunk middleware uses to dispatch.
+//             --> function runs (has the ability to dispatch other actions and do whatever it wants)
+
 
 
 // Higher Order Components (HOC) - A component (HOC) that renders another component (regular component)

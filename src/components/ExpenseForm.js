@@ -23,7 +23,7 @@ export default class ExpenseForm extends React.Component {
     onNoteChange = (e) => {
         const note = e.target.value;
         this.setState (() => ({note}))
-    }
+    };
     onAmountChange = (e) => {
         const amount = e.target.value
         //below !amount will allow user to remove input amount
