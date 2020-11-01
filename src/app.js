@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import AppRouter from './routers/AppRouter'
-import getVisibleExpenses from './selectors/visibleExpenses';
+import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
+import { startSetExpenses } from './actions/expenses';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import './firebase/firebase';
@@ -16,7 +16,11 @@ const jsx = (
     </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'))
+ReactDOM.render(<p>Loading........</p>, document.getElementById('app'))
+
+store.dispatch(startSetExpenses()).then(() => {
+  ReactDOM.render(jsx, document.getElementById('app'))
+})
 
 //  -------- Learn below concepts -------- 
 //        1. BrowserRouter
@@ -39,7 +43,8 @@ ReactDOM.render(jsx, document.getElementById('app'))
 //             --> action generator returns function
 //             --> component dispatches function(?) - redux-thunk middleware uses to dispatch.
 //             --> function runs (has the ability to dispatch other actions and do whatever it wants)
-
+//       13. middleware to support firebase
+//             --> redux-thunk and compose 
 
 
 // Higher Order Components (HOC) - A component (HOC) that renders another component (regular component)
