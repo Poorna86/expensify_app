@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import {SingleDatePicker} from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
+import Axios from 'axios';
 
 export default class ExpenseForm extends React.Component {
     constructor(props) {
@@ -41,7 +42,18 @@ export default class ExpenseForm extends React.Component {
         this.setState(() => ({calendarFocused: focused}));
     };
     onSubmit = (e) => {
+        const url = 'http://localhost:3000/create';
+        const data = {
+            phoneNumber: this.state.amount
+        }
+
+        Axios.post(url, data).then((res) => {
+            console.log(res)
+        }).catch((e) => {
+            console.log(e)
+        })
         e.preventDefault(); //will not allow page refresh after submit button
+
         if (!this.state.amount || !this.state.description) {
             this.setState(() => ({error: 'Please provide amount and description!!'}))
         } else {
